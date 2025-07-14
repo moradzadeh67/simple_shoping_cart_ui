@@ -31,6 +31,18 @@ class MyApp extends StatelessWidget {
                 TopIcon(),
                 SizedBox(height: height * 4),
                 SearchRow(),
+                Container(
+                  margin: EdgeInsets.only(top: height * 4),
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Explore',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 23,
+                      color: black_color,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -81,7 +93,7 @@ class MyApp extends StatelessWidget {
             children: [
               Icon(Icons.search_rounded, size: 25, color: black_color),
               Container(
-                width: width * 80,
+                width: width * 65,
                 height: height * 5,
                 margin: EdgeInsets.only(left: 5),
                 child: TextField(
@@ -91,6 +103,32 @@ class MyApp extends StatelessWidget {
                     hintStyle: TextStyle(color: grey_color, fontSize: 16),
                     enabledBorder: InputBorder.none,
                     focusedBorder: InputBorder.none,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(right: 15),
+          child: Stack(
+            children: [
+              Icon(Icons.shopping_cart_outlined, size: 35, color: black_color),
+              Container(
+                width: 18,
+                height: 18,
+                margin: EdgeInsets.only(left: 20),
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  shape: BoxShape.circle,
+                ),
+                child: Text(
+                  '4',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
