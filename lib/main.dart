@@ -13,6 +13,8 @@ class MyApp extends StatelessWidget {
   var grey_color = Color(0xffc4c4d5);
   var blue_color = Color(0xff7a99d7);
 
+  List<Product> data = [];
+
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width / 100;
@@ -31,18 +33,8 @@ class MyApp extends StatelessWidget {
                 TopIcon(),
                 SizedBox(height: height * 4),
                 SearchRow(),
-                Container(
-                  margin: EdgeInsets.only(top: height * 4),
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Explore',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 23,
-                      color: black_color,
-                    ),
-                  ),
-                ),
+                Explorer(height: height, black_color: black_color),
+                Products(),
               ],
             ),
           ),
@@ -138,4 +130,70 @@ class MyApp extends StatelessWidget {
       ],
     );
   }
+
+  Widget Products() {
+    data.add(Product('White sofa', 'assets/img.png', '2650'));
+    data.add(Product('black sofa', 'assets/img_1.png', '2150'));
+    data.add(Product('grey sofa', 'assets/img_2.png', '1950'));
+    return Container(
+      height: height * 34,
+      margin: EdgeInsets.only(top: height * 3),
+      child: ListView.builder(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: data.length,
+        itemBuilder: (context, index) {
+          return Container(
+            margin: EdgeInsets.only(right: 30, top: 4, bottom: 4),
+            width: width * 42,
+            height: height * 34,
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withAlpha((0.3 * 255).toInt()),
+                  spreadRadius: 3,
+                  blurRadius: 5,
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class Explorer extends StatelessWidget {
+  const Explorer({super.key, required this.height, required this.black_color});
+
+  final dynamic height;
+  final Color black_color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: height * 4),
+      alignment: Alignment.topLeft,
+      child: Text(
+        'Explore',
+        style: TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 23,
+          color: black_color,
+        ),
+      ),
+    );
+  }
+}
+
+class Product {
+  String image;
+  String title;
+  String price;
+
+  Product(this.image, this.title, this.price);
 }
