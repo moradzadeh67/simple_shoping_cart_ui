@@ -132,9 +132,9 @@ class MyApp extends StatelessWidget {
   }
 
   Widget Products() {
-    data.add(Product('White sofa', 'assets/img.png', '2650'));
-    data.add(Product('black sofa', 'assets/img_1.png', '2150'));
-    data.add(Product('grey sofa', 'assets/img_2.png', '1950'));
+    data.add(Product('assets/img.png', 'White sofa', '2650'));
+    data.add(Product('assets/img_1.png', 'black sofa', '2150'));
+    data.add(Product('assets/img_2.png', 'grey sofa', '1950'));
     return Container(
       height: height * 34,
       margin: EdgeInsets.only(top: height * 3),
@@ -157,6 +157,22 @@ class MyApp extends StatelessWidget {
                   spreadRadius: 3,
                   blurRadius: 5,
                   offset: Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  height: height * 16,
+                  margin: EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(7),
+                    image: DecorationImage(
+                      image: AssetImage(data[index].image),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
               ],
             ),
