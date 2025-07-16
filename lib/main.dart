@@ -174,6 +174,64 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(top: 5),
+                  child: Text(
+                    data[index].title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                      color: black_color,
+                    ),
+                  ),
+                ),
+                // Container(
+                //   alignment: Alignment.topLeft,
+                //   margin: EdgeInsets.only(top: 5),
+                //   child: Text(
+                //     data[index].price,
+                //     style: TextStyle(
+                //       fontWeight: FontWeight.bold,
+                //       fontSize: 15,
+                //       color: black_color,
+                //     ),
+                //   ),
+                // ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(top: height * 3),
+                  child: Text(
+                    'Description',
+                    style: TextStyle(color: grey_color, fontSize: 13),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.topLeft,
+                  margin: EdgeInsets.only(top: height * 3),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '\$ ${data[index].price}',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: black_color,
+                        ),
+                      ),
+                      Container(
+                        height: 25.0,
+                        width: 25.0,
+                        child: Icon(Icons.add, size: 15, color: Colors.white),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: blue_color,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           );
