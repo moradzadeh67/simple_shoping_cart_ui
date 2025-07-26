@@ -35,6 +35,8 @@ class MyApp extends StatelessWidget {
                 SearchRow(),
                 Explorer(height: height, black_color: black_color),
                 Products(),
+                BestSelling(height: height, black_color: black_color),
+                Selling(),
               ],
             ),
           ),
@@ -236,6 +238,96 @@ class MyApp extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+
+  Widget Selling() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      margin: EdgeInsets.only(right: 15, top: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Row(
+        children: [
+          Container(
+            height: height * 10,
+            width: width * 18,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.0),
+              image: DecorationImage(
+                image: AssetImage('assets/img.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SizedBox(width: 15.0),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                data[0].title,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Colors.black,
+                ),
+              ),
+              Text(
+                'Description',
+                style: TextStyle(color: grey_color, fontSize: 13),
+              ),
+              Text(
+                '\$${data[0].price}',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
+          Spacer(),
+          Container(
+            width: 30.0,
+            height: 30.0,
+            child: Icon(Icons.arrow_forward, size: 17, color: Colors.white),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: blue_color,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class BestSelling extends StatelessWidget {
+  const BestSelling({
+    super.key,
+    required this.height,
+    required this.black_color,
+  });
+
+  final dynamic height;
+  final Color black_color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: height * 3),
+      alignment: Alignment.topLeft,
+      child: Text(
+        'Best Selling',
+        style: TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 23,
+          color: black_color,
+        ),
       ),
     );
   }
